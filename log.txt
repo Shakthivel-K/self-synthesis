@@ -1,0 +1,4 @@
+add	2
+diff	1
+prod	0
+quo	1
