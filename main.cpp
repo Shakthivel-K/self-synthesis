@@ -39,16 +39,37 @@ void log_msg(string s)
 }
 void log_activation()
 {
-
+    string str;
+    ofstream fout ("activation_log.txt",ios::app);
+    ifstream fin ("main.cpp");
+    while (true)
+    {
+        if (fin.eof())
+        {
+            break;
+        }
+        getline(fin,str,'\n');
+        if (str.find("//$")==0)
+        {
+            fout <<str.substr(3,str.length())<<"\t"<<"active"<<endl;
+        }
+        else if (str.find("/*$")==0)
+        {
+            fout <<str.substr(3,str.length())<<"\t"<<"inactive"<<endl;
+        }
+        
+        
+    }
+    
 }
 
 
-//$add 
+/*$add 
 int add(int a,int b)
 {
     return a+b;
 }
-////$add
+*///$add
 
 //$diff
 int diff(int a,int b)
@@ -75,7 +96,7 @@ int quo(int a,int b)
 int main(int argc,char** argv)
 {
     //gen_log();
-    log_msg(argv[1]);
+    log_activation();
     
 }
 ////$main
