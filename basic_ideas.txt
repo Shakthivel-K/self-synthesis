@@ -1,0 +1,6 @@
+#1
+before each function give a single line comment of the form //<function name> $start if the function is active 
+and /*<function name> if the function is inactive
+#2
+at the end of each function give ////<function name> $end if the function is active 
+and *///<function name> $end if the function is inactive
