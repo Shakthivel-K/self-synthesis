@@ -1,6 +1,6 @@
 /* 
 statement 1
-statement 2
+statement altered
 statement 3
 */
 

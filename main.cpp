@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <regex>
 using namespace std;
 void gen_log()
 {
@@ -36,25 +37,45 @@ void log_msg(string s)
 
 
 }
+void log_activation()
+{
+
+}
+
+
+//$add 
 int add(int a,int b)
 {
     return a+b;
 }
+////$add
+
+//$diff
 int diff(int a,int b)
 {
     return a-b;
 }
+////$diff
+
+//$prod
 int prod(int a,int b)
 {
     return a*b;
 }
+////$prod
+
+//$quo
 int quo(int a,int b)
 {
     return a/b;
 }
+////$quo
+
+//$main
 int main(int argc,char** argv)
 {
     //gen_log();
     log_msg(argv[1]);
     
 }
+////$main
