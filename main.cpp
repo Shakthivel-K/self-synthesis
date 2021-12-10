@@ -152,7 +152,7 @@ void update_code()
 {
     functions f;
     vector <functions> arr;
-    vector <functions> deactivate;
+    vector <functions> deactive;
     ifstream fin_log("log.txt");
     
     while (true)
@@ -170,9 +170,15 @@ void update_code()
     {
         if (arr[i].ctr==0)
         {
-            deactivate.push_back(arr[i]);
+            deactive.push_back(arr[i]);
         }
     }
+    for (int i=0;i<deactive.size();i++)
+    {
+        deactivate(deactive[i].name);
+
+    }
+    log_activation();
     
 
 }
@@ -210,12 +216,13 @@ int main(int argc,char** argv)
 {
     
     //gen_log();
-    log_activation();
-    activate("add");
-    activate("prod");
     
     
 }
+
+
+
+
 
 
 

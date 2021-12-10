@@ -1,4 +1,4 @@
-add	2
-diff	1
-prod	0
-quo	1
+add	3
+diff	0
+prod	8
+quo	0

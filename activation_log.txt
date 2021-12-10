@@ -1,4 +1,4 @@
-add	inactive
-diff	active
-prod	inactive
-quo	active
+add	active
+diff	inactive
+prod	active
+quo	inactive
