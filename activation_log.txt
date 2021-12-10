@@ -1,4 +1,4 @@
-add 	inactive
+add 	active
 diff	active
 prod	active
 quo	active

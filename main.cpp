@@ -40,6 +40,7 @@ void log_msg(string s)
 void log_activation()
 {
     string str;
+    remove("activation_log.txt");
     ofstream fout ("activation_log.txt",ios::app);
     ifstream fin ("main.cpp");
     while (true)
@@ -62,14 +63,17 @@ void log_activation()
     }
     
 }
+void update_code()
+{
+    
+}
 
-
-/*$add 
+//$add 
 int add(int a,int b)
 {
     return a+b;
 }
-*///$add
+////$add
 
 //$diff
 int diff(int a,int b)
