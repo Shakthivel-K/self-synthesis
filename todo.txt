@@ -1,0 +1,2 @@
+->use classes to wrap function data 
+->use a single binary file 
