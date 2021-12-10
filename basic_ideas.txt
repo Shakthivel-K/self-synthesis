@@ -6,3 +6,5 @@ at the end of each function give ////$<function name> if the function is active
 and *///$<function name> if the function is inactive
 #3
 the activation and deactivation of each function is decided based on history
+#4
+the order of the functions in the list in each file is consistent
