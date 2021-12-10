@@ -4,3 +4,5 @@ and /*$<function name> if the function is inactive
 #2
 at the end of each function give ////$<function name> if the function is active 
 and *///$<function name> if the function is inactive
+#3
+the activation and deactivation of each function is decided based on history
