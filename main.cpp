@@ -3,6 +3,24 @@
 #include <string>
 #include <regex>
 using namespace std;
+void log_ctr()
+{
+    
+    ifstream fin ("ctr.txt");
+    int x;
+    fin >>x;
+    x++;
+    remove ("ctr.txt");
+    ofstream fout("ctr.txt",ios::app);
+    fout <<x<<endl;
+    fout.close();
+}
+void reset_ctr()
+{
+    remove ("ctr.txt");
+    ofstream fout("ctr.txt",ios::app);
+    fout <<0<<endl;
+}
 void gen_log()
 {
     ofstream fout("log.txt",ios::app);
@@ -63,6 +81,7 @@ void log_activation()
     }
     
 }
+
 void update_code()
 {
     
@@ -99,6 +118,7 @@ int quo(int a,int b)
 //$main
 int main(int argc,char** argv)
 {
+    reset_ctr();
     //gen_log();
     log_activation();
     
