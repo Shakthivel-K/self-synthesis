@@ -1,5 +1,4 @@
-add 	active
+add	inactive
 diff	active
-prod	active
+prod	inactive
 quo	active
-main	active

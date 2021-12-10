@@ -81,13 +81,103 @@ void log_activation()
     }
     
 }
-
-void update_code()
+struct functions
 {
+    string name;
+    int ctr;
+    
+};
+void deactivate(string fn_name)
+{
+    ifstream fin("main.cpp");
+    ofstream fout("main_temp.cpp",ios::app);
+    string str;
+    while (true)
+    {
+        if (fin.eof())
+        {
+            break;
+        }
+        getline(fin,str,'\n');
+        
+        if (str.find("//$")==0 && str.substr(3,str.length())==fn_name)
+        {
+            fout<<"/*$"<<fn_name<<endl;
+        }
+        else if (str.find("////$")==0 && str.substr(5,str.length())==fn_name)
+        {
+            fout <<"*///$"<<fn_name<<endl;
+        }
+        else 
+        {
+            fout <<str<<endl;
+        }
+        
+    }
+    remove("main.cpp");
+    rename("main_temp.cpp","main.cpp");
     
 }
+void activate(string fn_name)
+{
+    ifstream fin("main.cpp");
+    ofstream fout("main_temp.cpp",ios::app);
+    string str;
+    while (true)
+    {
+        if (fin.eof())
+        {
+            break;
+        }
+        getline(fin,str,'\n');
+        
+        if (str.find("/*$")==0 && str.substr(3,str.length())==fn_name)
+        {
+            fout<<"//$"<<fn_name<<endl;
+        }
+        else if (str.find("*///$")==0 && str.substr(5,str.length())==fn_name)
+        {
+            fout <<"////$"<<fn_name<<endl;
+        }
+        else 
+        {
+            fout <<str<<endl;
+        }
+        
+    }
+    remove("main.cpp");
+    rename("main_temp.cpp","main.cpp");
+}
+void update_code()
+{
+    functions f;
+    vector <functions> arr;
+    vector <functions> deactivate;
+    ifstream fin_log("log.txt");
+    
+    while (true)
+    {
+        
+        fin_log>>f.name>>f.ctr;        
+        if (fin_log.eof())
+        {
+            break;
+        }
+        arr.push_back(f);
+    }
+    // change condition later
+    for (int i=0;i<arr.size();i++)
+    {
+        if (arr[i].ctr==0)
+        {
+            deactivate.push_back(arr[i]);
+        }
+    }
+    
 
-//$add 
+}
+
+//$add
 int add(int a,int b)
 {
     return a+b;
@@ -115,12 +205,18 @@ int quo(int a,int b)
 }
 ////$quo
 
-//$main
+
 int main(int argc,char** argv)
 {
-    reset_ctr();
+    
     //gen_log();
     log_activation();
+    activate("add");
+    activate("prod");
+    
     
 }
-////$main
+
+
+
+
